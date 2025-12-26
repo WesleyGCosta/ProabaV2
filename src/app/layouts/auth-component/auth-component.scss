@@ -1,0 +1,11 @@
+@use 'variables' as v;
+
+main {
+    background-color: v.$color-background;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: v.$color-text;
+}
