@@ -1,11 +1,15 @@
 @use 'variables' as v;
 
 main {
-    background-color: v.$color-background;
+    background-color: #F8FAFC;
     width: 100%;
     height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: v.$color-text;
+    background-image: url('/assets/background.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 }
