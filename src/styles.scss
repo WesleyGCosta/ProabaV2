@@ -2,7 +2,7 @@
 
 
 :root {
-  --p-primary-50:  #eff6ff;
+  --p-primary-50: #eff6ff;
   --p-primary-100: #dbeafe;
   --p-primary-200: #bfdbfe;
   --p-primary-300: #93c5fd;
@@ -21,24 +21,33 @@
 }
 
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-.flex{
+.p-0 {
+  padding: 0 !important;
+}
+
+.flex {
   display: flex;
 }
 
-.justify-content-between{
+.justify-content-between {
   justify-content: space-between;
 }
 
-.align-itens-center{
+.align-itens-center {
   align-items: center;
+}
+
+
+.w-100 {
+  width: 100%;
 }

@@ -4,10 +4,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { Checkbox } from 'primeng/checkbox';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @Component({
   selector: 'app-login-component',
-   imports: [FormsModule, InputTextModule, ButtonModule, Checkbox],
+   imports: [FormsModule, InputTextModule, ButtonModule, Checkbox, InputGroupModule, InputGroupAddonModule],
   providers: [PasswordModule],
   templateUrl: './login-component.html',
   styleUrl: './login-component.scss',
