@@ -1,0 +1,7 @@
+@import 'variables';
+
+@mixin respond-below($breakpoint) {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }

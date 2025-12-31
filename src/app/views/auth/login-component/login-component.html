@@ -1,57 +1,98 @@
-<div class="card-login">
-  <form class="forms-container">
-    <div class="form-content">
-      <div class="form-header">
-        <img src="/assets/logo.png" width="100" height="100" />
-        <h3 class="form-title">Bem-vindo ao PROABA</h3>
-      </div>
-      <div class="form-body">
-        <div>
-          <label for="email">Email</label>
-          <p-inputgroup>
-            <p-inputgroup-addon>
-              <i class="pi pi-user"></i>
-            </p-inputgroup-addon>
-            <input
-              pInputText
-              name="email"
-              id="email"
-              [(ngModel)]="email"
-              placeholder="Ensira seu email"
-            />
-          </p-inputgroup>
-        </div>
-        <div>
-          <label for="password">Senha</label>
-          <p-inputgroup>
-            <p-inputgroup-addon>
-              <i class="pi pi-unlock"></i>
-            </p-inputgroup-addon>
-            <input
-              type="password"
-              pInputText
-              id="password"
-              name="password"
-              placeholder="Ensira sua senha"
-              [(ngModel)]="password"
-            />
-          </p-inputgroup>
-        </div>
-        <div class="flex justify-content-between">
-          <div>
-            <p-checkbox name="remenber" [(ngModel)]="remenber" [binary]="true" />
-            <label for="remenber" class="ml-2"> Lembrar senha</label>
-          </div>
-          <div>
-            <p-button label="Esqueceu a senha?" link styleClass="p-0" />
-          </div>
-        </div>
-      </div>
-      <div class="form-footer">
-        <p-button label="Enviar" styleClass="w-100" />
-      </div>
+<form class="forms-container" [class.forgot-mode]="mode() === eTypeForm.forgot">
+  <div class="form-content">
+    <div class="form-header">
+      <img [ngSrc]="'/assets/logo.png'" width="100" height="100" alt="Logo" />
+      <h3 class="form-title">{{ titleForm() }}</h3>
     </div>
-  </form>
+    <div class="form-body">
+      @if(mode() == eTypeForm.login){
+      <div>
+        <label for="email">Email</label>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <i class="pi pi-user"></i>
+          </p-inputgroup-addon>
+          <input
+            pInputText
+            id="email"
+            type="email"
+            [field]="loginRequestForm.email"
+            placeholder="Ensira seu email"
+          />
+        </p-inputgroup>
+        @if(loginRequestForm.email().invalid() && loginRequestForm.email().touched()){
+        <span class="alert-danger">
+          @for(error of loginRequestForm.email().errors(); track error.kind){
+          {{ error.message }}
+          }
+        </span>
+        }
+      </div>
+      <div>
+        <label for="password">Senha</label>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <i class="pi pi-unlock"></i>
+          </p-inputgroup-addon>
+          <input
+            [field]="loginRequestForm.password"
+            type="password"
+            pInputText
+            id="password"
+            placeholder="Ensira sua senha"
+          />
+        </p-inputgroup>
+      </div>
+      <div class="flex justify-content-between">
+        <div>
+          <p-checkbox name="remenber" [field]="loginRequestForm.remenber" [binary]="true" />
+          <label for="remenber" class="ml-2"> Lembrar senha</label>
+        </div>
+        <div>
+          <p-button (onClick)="toggleTypeForm()" label="Esqueceu a senha?" link styleClass="p-0" />
+        </div>
+      </div>
+      }@else {
+      <div>
+        <label for="email">Email</label>
+        <p-inputgroup>
+          <p-inputgroup-addon>
+            <i class="pi pi-user"></i>
+          </p-inputgroup-addon>
+          <input
+            pInputText
+            type="email"
+            [field]="loginRequestForm.email"
+            placeholder="Ensira seu email"
+          />
+        </p-inputgroup>
+        @if(loginRequestForm.email().invalid() && loginRequestForm.email().touched()){
+        <span class="alert-danger">
+          @for(error of loginRequestForm.email().errors(); track error.kind){
+          {{ error.message }}
+          }
+        </span>
+        }
+      </div>
+      }
+    </div>
+    <div class="form-footer">
+      <p-button
+        [disabled]="!canSubmit()"
+        (onClick)="submitted()"
+        label="Enviar"
+        styleClass="w-100"
+      />
 
-  <div class="banner-overlay"></div>
-</div>
+      @if(mode() == eTypeForm.forgot){
+      <p-button
+        (onClick)="toggleTypeForm()"
+        label="Cancelar"
+        styleClass="w-100"
+        severity="secondary"
+      />
+      }
+    </div>
+  </div>
+  <div class="banner banner-{{ bannerClass() }}"></div>
+</form>

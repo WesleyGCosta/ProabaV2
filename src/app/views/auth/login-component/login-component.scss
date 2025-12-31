@@ -1,56 +1,99 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
-.card-login {
-  width: 50rem;
-  height: 28.75rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background-color: v.$color-background;
-  color: v.$color-text;
-  display: flex;
-  justify-content: space-between;
+:host {
+  padding: 0 1rem;
+  width: 100%;
 
-  .form-body {
+  .forms-container {
+    width: 50rem;
+    height: 28.75rem;
+
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: v.$color-background;
+    color: v.$color-text;
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 0;
-
-    p-inputgroup{
-      margin-top: 0.5rem;
-    }
-  }
-
-  .form-content {
-    padding: 1rem 2rem 2rem ;
-    width: 26rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 
-    .form-header {
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      .form-title {
-        font-weight: 700;
-        text-align: center;
-      }
-
+    @include m.respond-below(v.$breakpoint-md) {
+      width: 100%;
+      height: 40rem;
+      flex-direction: column-reverse;
     }
 
-  }
+    @include m.respond-below(v.$breakpoint-sm) {
+      height: 30rem;
+    }
 
-  .banner-overlay {
-    background-color: v.$color-primary;
-    width: 28.125rem;
-    border-radius: 5rem 0 0 5rem;
-    background-image: url('/assets/welcome-pana.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
+    .form-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 0;
+
+      p-inputgroup {
+        margin-top: 0.5rem;
+      }
+    }
+
+    .form-content {
+      padding: 1rem 2rem 2rem;
+      width: 26rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include m.respond-below(v.$breakpoint-md) {
+        width: 100%;
+        height: 100%;
+      }
+
+      .form-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .form-title {
+          font-weight: 700;
+          text-align: center;
+        }
+      }
+
+      .form-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    .banner {
+      background-color: v.$color-primary;
+      width: 28.125rem;
+      border-radius: 5rem 0 0 5rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top;
+
+      @include m.respond-below(v.$breakpoint-md) {
+        width: 100%;
+        height: 20rem;
+        border-radius: 0 0 5rem 5rem;
+        background-size: contain;
+      }
+
+      @include m.respond-below(v.$breakpoint-sm) {
+        display: none;
+      }
+    }
+
+    .banner-welcome {
+      background-image: url('/assets/welcome-pana.svg');
+    }
+
+    .banner-forgot {
+      background-image: url('/assets/reset-password.svg');
+    }
   }
 }
