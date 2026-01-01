@@ -19,6 +19,6 @@ export const loginValidations = schema<LoginRequest>((path) => {
 })
 
 export enum typeForm {
-    login,
-    forgot
+    login = 'login',
+    forgot = 'forgot'
 }

@@ -6,7 +6,7 @@
     </div>
     <div class="form-body">
       @if(mode() == eTypeForm.login){
-      <div>
+      <div class="form-animated">
         <label for="email">Email</label>
         <p-inputgroup>
           <p-inputgroup-addon>
@@ -28,7 +28,7 @@
         </span>
         }
       </div>
-      <div>
+      <div class="form-animated">
         <label for="password">Senha</label>
         <p-inputgroup>
           <p-inputgroup-addon>
@@ -44,10 +44,6 @@
         </p-inputgroup>
       </div>
       <div class="flex justify-content-between">
-        <div>
-          <p-checkbox name="remenber" [field]="loginRequestForm.remenber" [binary]="true" />
-          <label for="remenber" class="ml-2"> Lembrar senha</label>
-        </div>
         <div>
           <p-button (onClick)="toggleTypeForm()" label="Esqueceu a senha?" link styleClass="p-0" />
         </div>
