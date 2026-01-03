@@ -1,5 +1,5 @@
+@use 'variables' as v;
 @import "primeicons/primeicons.css";
-
 
 :root {
   --p-primary-50: #eff6ff;
@@ -28,7 +28,8 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: v.$color-text;
 }
 
 .alert-danger{

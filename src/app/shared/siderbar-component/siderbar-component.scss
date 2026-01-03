@@ -1,0 +1,14 @@
+@use 'variables' as v;
+
+:host{
+    display: block;
+    background-color: v.$color-white;
+    width: 220px;
+    height: 100%;
+
+    border-top: solid 1px v.$color-background;
+}
+
+:host ::ng-deep .p-menu {
+  border: none;
+}

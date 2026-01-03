@@ -1,0 +1,11 @@
+@use 'variables' as v;
+
+:host{
+    display: block;
+    background-color: v.$color-background;
+    width: 100%;
+
+    main{
+        height: calc(100dvh - 56px);
+    }
+}
