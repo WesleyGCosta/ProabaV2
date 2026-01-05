@@ -24,7 +24,8 @@ export class SiderbarComponent implements OnInit {
           },
           {
             label: 'Pacientes',
-            icon: 'pi pi-users'
+            icon: 'pi pi-users',
+            routerLink: '/pacientes'
           },
           {
             label: 'Profissionais',

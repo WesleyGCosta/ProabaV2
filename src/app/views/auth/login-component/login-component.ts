@@ -3,7 +3,6 @@ import { initialDataLogin, LoginRequest, loginValidations, typeForm, typeForm as
 import { InputTextModule } from 'primeng/inputtext';
 import { Field, form } from '@angular/forms/signals';
 import { Button } from 'primeng/button';
-import { Checkbox } from 'primeng/checkbox';
 import { InputGroupAddon } from 'primeng/inputgroupaddon';
 import { InputGroup } from 'primeng/inputgroup';
 import { NgOptimizedImage } from '@angular/common';
@@ -13,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-component',
-  imports: [Button, Checkbox, InputGroupAddon, InputGroup, Field, NgOptimizedImage, InputTextModule],
+  imports: [Button, InputGroupAddon, InputGroup, Field, NgOptimizedImage, InputTextModule],
   providers: [PasswordModule],
   templateUrl: './login-component.html',
   styleUrl: './login-component.scss',

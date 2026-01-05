@@ -3,10 +3,9 @@
 :host{
     display: block;
     background-color: v.$color-white;
-    width: 220px;
+    width: v.$width-siderbar;
     height: 100%;
-
-    border-top: solid 1px v.$color-background;
+    border-radius: 1rem;
 }
 
 :host ::ng-deep .p-menu {

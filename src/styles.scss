@@ -61,3 +61,27 @@ body {
   opacity: 1;
   transition: opacity 0.35s ease;
 }
+
+.border-top{
+  border-top: solid 1px v.$color-background;
+}
+
+.border-botton{
+  border-bottom: solid 1px v.$color-background;
+}
+
+.border-left{
+  border-left: solid 1px v.$color-background;
+}
+
+.border-right{
+  border-right: solid 1px v.$color-background;
+}
+
+.border-all{
+  border: solid 1px v.$color-background;
+}
+
+.border-radius{
+  border-radius: 0.3rem;
+}
