@@ -1,1 +1,3 @@
-<p-menu [model]="items" />
+<div [class.siderbar-closed]="!siderbarClosed()" [class.siderbar-open]="siderbarClosed()">
+  <p-menu [model]="items" />
+</div>

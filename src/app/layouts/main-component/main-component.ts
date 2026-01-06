@@ -7,9 +7,9 @@ import { SiderbarComponent } from "../../shared/siderbar-component/siderbar-comp
   selector: 'app-main-component',
   imports: [RouterOutlet, HeaderComponent, SiderbarComponent],
   template: `
-  <app-header-component/>
+  <app-header-component (toggleSidebar)="sidebar.toggleMenu()"/>
   <main>
-    <app-siderbar-component></app-siderbar-component>
+    <app-siderbar-component #sidebar></app-siderbar-component>
     <router-outlet></router-outlet>
   </main>
   `,

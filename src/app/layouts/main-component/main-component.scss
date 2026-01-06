@@ -1,14 +1,25 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
-:host{
+:host {
     display: block;
     background-color: v.$color-background;
     width: 100%;
 
-    main{
+    main {
         height: calc(100dvh - 56px);
         display: flex;
         gap: 0.5rem;
         padding: 1rem;
+        position: relative;
+
+        &:has(.siderbar-closed) {
+            transition: all 1s ease;
+            gap: 0;
+        }
+
+        @include m.respond-below(v.$breakpoint-md) {
+            gap: 0;
+        }
     }
 }

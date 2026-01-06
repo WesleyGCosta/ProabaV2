@@ -1,13 +1,38 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
-:host{
-    display: block;
-    background-color: v.$color-white;
-    width: v.$width-siderbar;
-    height: 100%;
-    border-radius: 1rem;
+:host {
+  flex-shrink: 0;
+  background-color: v.$color-white;
+  width: v.$width-siderbar;
+  height: 100%;
+  border-radius: 1rem;
+  transition: all 0.5s ease;
+  overflow: hidden;
+
+  &:has(.siderbar-closed) {
+    width: 0;
+  }
+
+  @include m.respond-below(v.$breakpoint-md) {
+    z-index: 10;
+    position: fixed;
+    left: -1 * v.$width-siderbar;
+    top: 56px;
+    border-radius: 0;
+
+    &:has(.siderbar-open) {
+      left: 0;
+    }
+
+  }
 }
 
 :host ::ng-deep .p-menu {
   border: none;
+}
+
+:host ::ng-deep .p-menu-item-link-active {
+  background-color: #cfd4d9;
+
 }

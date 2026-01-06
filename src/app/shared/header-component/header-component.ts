@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'app-header-component',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './header-component.scss',
 })
 export class HeaderComponent {
+  public toggleSidebar = output<void>();
 
+  onHamburgerClick() {
+    this.toggleSidebar.emit();
+  }
 }
