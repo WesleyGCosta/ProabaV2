@@ -1,11 +1,32 @@
 @use 'variables' as v;
 
-:host{
+:host {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 20px;
     width: 100%;
     border-radius: v.$border-radius;
-    padding: 1rem;
-    background-color: v.$color-white;
+    padding: 0 1rem 1rem 0;
+
+    .page-title {
+        display: flex;
+        flex-direction: column;
+        gap:0.5rem;
+
+        h2 {
+            font-size: 2em;
+        }
+        p{
+            color: v.$color-text-subtitle;
+        }
+    }
+
+    .page-buttons{
+        display: flex;
+        gap: 1rem;
+    }
+
+
+
 }
